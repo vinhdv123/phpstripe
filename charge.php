@@ -28,7 +28,9 @@ if (isset($_POST['stripeToken'])) {
                 'submission_url' => 'xxx',
             ),
         ));
-        echo '<h1>Successfully charged $50.00!</h1>';
+        echo '<pre>';
+        var_dump($charge);die;
+//        echo '<h1>Successfully charged $50.00!</h1>';
     } catch (\Stripe\Error\Card $e) {
         // Since it's a decline, \Stripe\Error\Card will be caught
         $body = $e->getJsonBody();
