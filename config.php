@@ -25,5 +25,3 @@ if ($params['testmode'] == "on") {
     \Stripe\Stripe::$apiBase = "https://api-tls12.stripe.com";
     $pubkey = $params['public_live_key'];
 }
-$curl = new \Stripe\HttpClient\CurlClient(array(CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2));
-\Stripe\ApiRequestor::setHttpClient($curl);
