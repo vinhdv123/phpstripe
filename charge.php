@@ -20,16 +20,14 @@ if (isset($_POST['stripeToken'])) {
     try {
         $charge = \Stripe\Charge::create(array(
             'source' => $_POST['stripeToken'],
-            'amount' => 50,
-            'description' => 'sss',
+            'amount' => 1000,
+            "description" => "Event charge",
             'currency' => 'usd',
             'receipt_email' => 'ipmac.vinhdv@gmail.com',
-            'metadata' => array(
-                'submission_url' => 'xxx',
-            ),
+            "application_fee" => 123
         ));
         echo '<pre>';
-        var_dump($charge);die;
+        var_dump($charge->id);die;
 //        echo '<h1>Successfully charged $50.00!</h1>';
     } catch (\Stripe\Error\Card $e) {
         // Since it's a decline, \Stripe\Error\Card will be caught
